@@ -11,13 +11,22 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
 # add your source files
 set(SOURCE_FILES 
-  src/main.cpp
+  # src/main.cpp
   src/tcp_port_scanner.cpp
+  src/cli.cpp
   )
 set (HEADER_FILES
-  include/tcp_port_scanner.hpp
+  include/tcp_port_scanner.h
   )
 
+
+# Add Boost dependency
+find_package(Boost REQUIRED COMPONENTS system)
+include_directories(${Boost_INCLUDE_DIRS})
+
+# Add cxxopts library
+set(EXTERNAL_INCLUDE_DIRS external/cxxopts/include)
+include_directories(external/cxxopts-3.1.1/include)
 
 # Add the CMAKE_EXPORT_COMPILE_COMMANDS option
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
