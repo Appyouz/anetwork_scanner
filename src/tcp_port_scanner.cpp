@@ -1,4 +1,4 @@
-#include "tcp_port_scanner.hpp"
+#include "tcp_port_scanner.h"
 #include <iostream>
 using boost::asio::ip::tcp;
 
